@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
+  
+  --color-neon-cyan: #00ffff;
+  --color-neon-magenta: #ff00ff;
+  --color-neon-lime: #39ff14;
+  --color-cyber-black: #050505;
+  --color-cyber-gray: #0f0f0f;
+  --color-border-dim: #222222;
+}
+
+@layer utilities {
+  .neon-text-cyan {
+    color: var(--color-neon-cyan);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+
+  .neon-text-magenta {
+    color: var(--color-neon-magenta);
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+  }
+
+  .neon-text-lime {
+    color: var(--color-neon-lime);
+    text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+  }
+
+  .panel-bg {
+    background-color: var(--color-cyber-gray);
+  }
+
+  .border-dim {
+    border-color: var(--color-border-dim);
+  }
+}
+
+body {
+  background-color: var(--color-cyber-black);
+  color: #ffffff;
+  overflow: hidden;
+  border: 8px solid var(--color-cyber-gray);
+  height: 100vh;
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(0, 255, 255, 0.05);
+  opacity: 0.3;
+  pointer-events: none;
+  animation: scanline 10s linear infinite;
+  z-index: 50;
+}
